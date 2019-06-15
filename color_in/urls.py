@@ -20,5 +20,5 @@ from color_in.views import ColorView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('add_color/', ColorView.as_view())
+    path('add_color/', ColorView.as_view(), name='color-add')
 ]
