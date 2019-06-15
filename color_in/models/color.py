@@ -8,6 +8,6 @@ class Color(models.Model):
 
         Fields: color_name, cmyk (comma-delimited list)
     """
-    color_name = models.CharField(max_length=100)
+    color_name = models.CharField(max_length=100, verbose_name="Nome da cor")
     cmyk = models.CharField(max_length=20,
                             validators=[validate_comma_separated_integer_list])

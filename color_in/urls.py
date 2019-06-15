@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from color_in.views import ColorView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('add_color/', ColorView.as_view())
 ]
