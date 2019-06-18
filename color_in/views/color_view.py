@@ -1,5 +1,9 @@
-from django.views.generic.edit import FormView
-from color_in.forms import ColorForm
+from django.views.generic.edit import FormView, UpdateView
+
+from color_in.forms import ColorForm, ColorEditForm
+from color_in.models import Color
+
+# TODO: remove duplicated code
 
 
 class ColorView(FormView):
@@ -19,5 +23,46 @@ class ColorView(FormView):
         color = form.save(commit=False) # don't commit yet, we need to change the cmyk column
         color.cmyk = ','.join(map(str, [cyan, magenta, yellow, key]))
         color.save()
-        
+
+        return super().form_valid(form)
+
+
+class ColorEditView(FormView):
+    template_name = 'color_in/color_form.html'
+    form_class = ColorEditForm
+    success_url = '/'
+
+    def get_initial(self):
+        """
+            Returns the initial data to be used in the form
+        """
+        initial = super().get_initial()
+
+        color_id = self.kwargs['pk']
+        color_obj = Color.objects.get(id=color_id)
+        cyan, magenta, yellow, key = color_obj.cmyk.split(',')
+
+        initial['color_name'] = color_obj.color_name
+        initial['qt_cyan'] = cyan
+        initial['qt_magenta'] = magenta
+        initial['qt_yellow'] = yellow
+        initial['qt_key'] = key
+
+        return initial
+
+    def form_valid(self, form):
+        color_id = self.kwargs['pk']
+
+        color_obj = Color.objects.get(id=color_id)
+        color_obj.color_name = form.cleaned_data['color_name']
+
+        # getting the colors in the form so we can insert comma-delimited
+        cyan = form.cleaned_data['qt_cyan']
+        magenta = form.cleaned_data['qt_magenta']
+        yellow = form.cleaned_data['qt_yellow']
+        key = form.cleaned_data['qt_key']
+
+        color_obj.cmyk = ','.join(map(str, [cyan, magenta, yellow, key]))
+        color_obj.save()
+
         return super().form_valid(form)
