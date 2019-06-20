@@ -1,4 +1,5 @@
-from django.views.generic.edit import FormView, UpdateView
+from django.views.generic.edit import FormView
+from django.views.generic import ListView
 
 from color_in.forms import ColorForm, ColorEditForm
 from color_in.models import Color
@@ -66,3 +67,8 @@ class ColorEditView(FormView):
         color_obj.save()
 
         return super().form_valid(form)
+
+
+class ColorListView(ListView):
+    model = Color
+    paginate_by = 100
