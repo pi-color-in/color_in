@@ -107,5 +107,7 @@ ecom_merci/db.sqlite3
 # ignora tudo dentro de Productsmedia
 ProductsMedia/*
 .vscode/settings.json
+.vscode/launch.json
 
 migrations/
+db.sqlite3
