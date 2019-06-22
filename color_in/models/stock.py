@@ -7,4 +7,4 @@ class Stock(models.Model):
     stock_yellow = models.IntegerField()
     stock_magenta = models.IntegerField()
     stock_cyan = models.IntegerField()
-    stock_status = models.IntegerField()
+    stock_status = models.BooleanField()
