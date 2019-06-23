@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from color_in.views import ColorView, ColorEditView, ColorListView
+from color_in.views import (
+    ColorView,
+    ColorEditView,
+    ColorListView,
+    StockObjectCreateView,
+    StockObjectListView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_color/', ColorView.as_view(), name='color-add'),
     path('edit_color/<int:pk>', ColorEditView.as_view(), name='color-edit'),
-    path('list_colors/', ColorListView.as_view(), name='color-list')
+    path('list_colors/', ColorListView.as_view(), name='color-list'),
+    path('stock_create', StockObjectCreateView.as_view(), name='stock-create'),
+    path('stock_status', StockObjectListView.as_view(), name='stock-status')
+
 ]

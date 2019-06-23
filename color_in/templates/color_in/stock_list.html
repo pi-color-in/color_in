@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Base (Branco)</th>
+                <th>Preto</th>
+                <th>Amarelo</th>
+                <th>Magenta</th>
+                <th>Ciano</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in object_list %}
+            <tr>
+                <td>{{ element.stock_base }}</td>
+                <td>{{ element.stock_black }}</td> 
+                <td>{{ element.stock_yellow }}</td> 
+                <td>{{ element.stock_magenta }}</td> 
+                <td>{{ element.stock_cyan }}</td> 
+                {% endfor %}
+            </tr>
+        </tbody>
+</body>
+</html>
