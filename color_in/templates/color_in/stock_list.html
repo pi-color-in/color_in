@@ -14,11 +14,11 @@
         <tbody>
             {% for element in object_list %}
             <tr>
-                <td>{{ element.stock_base }}</td>
-                <td>{{ element.stock_black }}</td> 
-                <td>{{ element.stock_yellow }}</td> 
-                <td>{{ element.stock_magenta }}</td> 
-                <td>{{ element.stock_cyan }}</td> 
+                <td>{% firstof element.stock_base "Indisponível" %}</td>
+                <td>{% firstof element.stock_black "Indisponível" %}</td> 
+                <td>{% firstof element.stock_yellow "Indisponível" %}</td> 
+                <td>{% firstof element.stock_magenta "Indisponível" %}</td> 
+                <td>{% firstof element.stock_cyan "Indisponível" %}</td> 
                 {% endfor %}
             </tr>
         </tbody>
