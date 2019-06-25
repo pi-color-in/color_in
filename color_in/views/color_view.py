@@ -1,11 +1,14 @@
 from django.views.generic.edit import FormView
 from django.views.generic import ListView
+from django.shortcuts import render
 
 from color_in.forms import ColorForm, ColorEditForm
 from color_in.models import Color
 
 # TODO: remove duplicated code
 
+def teste(request):
+    return render(request, "color_in/base.html")
 
 class ColorView(FormView):
     template_name = 'color_in/color_form.html'
