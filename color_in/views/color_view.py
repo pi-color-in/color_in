@@ -74,4 +74,3 @@ class ColorEditView(FormView):
 
 class ColorListView(ListView):
     model = Color
-    paginate_by = 100

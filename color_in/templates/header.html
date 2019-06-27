@@ -5,41 +5,15 @@
    
   </head>
   <body>
+    {% block title %}
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">ColorIn</a>
     </nav>
+    {% endblock %}
 
     <div class="content container" style="padding:5%">
-      
-      <form method="POST" action="" class="">
-      <input type="hidden" name="_token">{% csrf_token %}
-
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card" style="margin: 2%">
-            <div class="card-header" style="color: white; background-color: #ffa500">
-              Laranja
-            </div>
-            <div class="card-body">
-              <p class="card-text">CMYK: 0%, 35%, 100%, 0% </p>
-              <button type="submit" class="btn btn-primary">Criar</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-          <div class="card" style="margin: 2%">
-            <div class="card-header" style="color: white; background-color: #800080">
-              Violeta
-            </div>
-            <div class="card-body">
-              <p class="card-text">CMYK: 0%, 50%, 0%, 50% </p>
-              <button type="submit" class="btn btn-primary">Criar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </form>
+        {% block content %}
+        {% endblock %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,6 +1,26 @@
+{% extends 'header.html' %}
+{% load cmyk_to_rgb %}
 <html>
 <head></head>
 <body>
+    {% block content %}
+        <div class="row">
+        {% for element in object_list %}
+                <div class="col-sm-6">
+                <div class="card" style="margin: 2%">
+                    <div class="card-header" style="color: white; background-color: rgb({{ element.cmyk|to_rgb }})">
+                    {{ element.color_name }}
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">CMYK: {{ element.cmyk }} </p>
+                    </div>
+                </div>
+                </div>
+        {% endfor %}
+            </div>
+    {% endblock %}
+
+
     <table border="2">
         <thead>
             <tr>
@@ -17,5 +37,6 @@
             </tr>
         </tbody>
     </table>
+    
 </body>
 </html>
