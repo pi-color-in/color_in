@@ -25,6 +25,17 @@
                 {% endfor %}
             </tr>
         </tbody>
+
+        {% if critical_colors_list|length > 0 %}
+        <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                <div class="card-header">Aviso</div>
+                <div class="card-body">
+                  <h5 class="card-title">Nível de tinta crítico</h5>
+                  <p class="card-text">As seguintes tintas estão com quantidades muito pequenas de tinta: {{ critical_colors }}</p>
+                </div>
+        </div>
+        {% endif %}
+              
         {% endblock %}
 </body>
 </html>
