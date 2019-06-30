@@ -1,26 +1,30 @@
+{% extends 'header.html' %}
+
 <html>
 <head></head>
 <body>
-    <table border="2">
+    {% block content %}
+    <table class="table">
         <thead>
             <tr>
                 <th>Base (Branco)</th>
-                <th>Preto</th>
-                <th>Amarelo</th>
-                <th>Magenta</th>
-                <th>Ciano</th>
+                <th bgcolor="cyan">Ciano</th>
+                <th bgcolor="magenta">Magenta</th>
+                <th bgcolor="yellow">Amarelo</th>
+                <th bgcolor="black"><font color="white">Preto</font></th>
             </tr>
         </thead>
         <tbody>
             {% for element in object_list %}
             <tr>
-                <td>{% firstof element.stock_base "Indisponível" %}</td>
-                <td>{% firstof element.stock_black "Indisponível" %}</td> 
-                <td>{% firstof element.stock_yellow "Indisponível" %}</td> 
-                <td>{% firstof element.stock_magenta "Indisponível" %}</td> 
-                <td>{% firstof element.stock_cyan "Indisponível" %}</td> 
+                <td>{% firstof element.stock_base|stringformat:"i"|add:" ml" "Indisponível" %}</td>
+                <td>{% firstof element.stock_cyan|stringformat:"i"|add:" ml" "Indisponível" %}</td> 
+                <td>{% firstof element.stock_magenta|stringformat:"i"|add:" ml" "Indisponível" %}</td> 
+                <td>{% firstof element.stock_yellow|stringformat:"i"|add:" ml" "Indisponível" %}</td> 
+                <td>{% firstof element.stock_black|stringformat:"i"|add:" ml" "Indisponível" %}</td> 
                 {% endfor %}
             </tr>
         </tbody>
+        {% endblock %}
 </body>
 </html>
