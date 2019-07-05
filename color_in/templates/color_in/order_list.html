@@ -1,0 +1,25 @@
+{% extends 'header.html' %}
+
+<html>
+<head></head>
+<body>
+    {% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cor desejada</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in object_list %}
+            <tr>
+                <td>{{ element.ordered_color }}</td>
+                <td>{{ element.quantity }}</td> 
+                {% endfor %}
+            </tr>
+        </tbody>
+
+        {% endblock %}
+</body>
+</html>

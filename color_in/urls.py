@@ -23,7 +23,8 @@ from color_in.views import (
     StockObjectCreateView,
     StockObjectListView,
     StockObjectUpdateView,
-    OrderCreateView)
+    OrderCreateView,
+    OrderListView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +34,6 @@ urlpatterns = [
     path('stock_create', StockObjectCreateView.as_view(), name='stock-create'),
     path('stock_status', StockObjectListView.as_view(), name='stock-status'),
     path('change_stock', StockObjectUpdateView.as_view(), name='stock-change'),
-    path('create_order', OrderCreateView.as_view(), name='create-order')
+    path('create_order', OrderCreateView.as_view(), name='create-order'),
+    path('list_orders', OrderListView.as_view(), name='list-orders')
 ]
