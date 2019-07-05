@@ -12,3 +12,6 @@ class Color(models.Model):
         max_length=100, verbose_name="Nome da cor", blank=False)
     cmyk = models.CharField(max_length=20, blank=False,
                             validators=[validate_comma_separated_integer_list])
+
+    def __str__(self):
+        return self.color_name

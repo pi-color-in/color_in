@@ -1,0 +1,16 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+<html>
+<head></head>
+<body>
+    {% block content %}
+    <form method="POST">{% csrf_token %}
+        <p> {{ form.ordered_color|as_crispy_field }} </p>
+        <p> {{ form.quantity|as_crispy_field }} </p>
+        
+        <button type="submit" class="btn btn-success">Salvar </button>
+    </form>
+    {% endblock %}
+</body>
+</html>
