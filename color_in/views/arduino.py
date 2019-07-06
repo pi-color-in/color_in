@@ -29,7 +29,7 @@ def send_color(base,cyan,magenta,yellow,black):
     data = "{},{},{},{},{}\n".format(str(base),str(cyan),str(magenta),str(yellow),str(black))
     # data = "2000,2000,2000,2000,2000\n"
     print(data)
-    ser.write(data)
+    ser.write(data.encode())
     time.sleep(2)
     output = ''
     while not "finish" in output:
