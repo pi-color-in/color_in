@@ -35,7 +35,7 @@ def send_color(base,cyan,magenta,yellow,black):
     while not "finish" in output:
         output = str(ser.readline())
         print('output:' + output)
-    ser.close()
+    # ser.close()
 
 def main(base_code,cyan_code,magenta_code,yellow_code,black_code):
     # percentagem total das cores
