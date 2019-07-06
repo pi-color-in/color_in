@@ -32,6 +32,6 @@ def execute_order(request, *args, **kwargs):
 
     cmyk = color.cmyk
     c, m, y, k = map(int, cmyk.split(','))
-    arduino.main(order_object.quantity, c, m , y, k)
+    arduino.main(int(order_object.quantity), c, m, y, k)
 
     return HttpResponseRedirect('/list_orders')
