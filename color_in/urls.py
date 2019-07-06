@@ -25,10 +25,12 @@ from color_in.views import (
     StockObjectUpdateView,
     OrderCreateView,
     OrderListView,
-    OrderDeleteView)
+    OrderDeleteView,
+    home_page)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_page),
     path('add_color/', ColorView.as_view(), name='color-add'),
     path('edit_color/<int:pk>', ColorEditView.as_view(), name='color-edit'),
     path('list_colors/', ColorListView.as_view(), name='color-list'),

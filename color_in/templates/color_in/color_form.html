@@ -1,9 +1,19 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
 <html>
-    <head></head>
-    <body>
-        <form method="POST">{% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<head></head>
+<body>
+    {% block content %}
+    <form method="POST">{% csrf_token %}
+        <p> {{ form.color_name|as_crispy_field }} </p>
+        <p> {{ form.qt_cyan|as_crispy_field }} </p>
+        <p> {{ form.qt_magenta|as_crispy_field }} </p>
+        <p> {{ form.qt_yellow|as_crispy_field }} </p>
+        <p> {{ form.qt_key|as_crispy_field }} </p>
+        
+        <button type="submit" class="btn btn-success">Salvar </button>
+    </form>
+    {% endblock %}
+</body>
 </html>
