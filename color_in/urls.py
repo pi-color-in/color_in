@@ -33,7 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
     path('add_color/', ColorView.as_view(), name='color-add'),
-    path('edit_color/<int:pk>', ColorEditView.as_view(), name='color-edit'),
+    path('edit_color/<int:pk>', ColorEditView.as_view(), name='edit-color'),
     path('list_colors/', ColorListView.as_view(), name='color-list'),
     path('stock_create', StockObjectCreateView.as_view(), name='stock-create'),
     path('stock_status', StockObjectListView.as_view(), name='stock-status'),
