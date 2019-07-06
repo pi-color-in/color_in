@@ -17,7 +17,7 @@
                 <th>Cor desejada</th>
                 <th>Quantidade</th>
                 <th >Remover pedido</th>
-                <th>Realizar pedido</th>
+                <th>Iniciar pedido</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
                 <td>{{ element.ordered_color }}</td>
                 <td>{{ element.quantity }}</td> 
                 <td><a href= "{% url 'delete-order' element.id %}" onclick="return confirm_delete()"><i class="fas fa-trash"></i></a></td> 
-                <td><a href="{% url 'execute-order' element.id %}">Misturar</a></td>
+                <td><a href="{% url 'execute-order' element.id %}">Iniciar</a></td>
                 {% endfor %}
             </tr>
         </tbody>
