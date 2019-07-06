@@ -1,14 +1,22 @@
 {% extends 'header.html' %}
 
 <html>
-<head></head>
+<head>
+</head>
 <body>
     {% block content %}
+    <script type="text/javascript">
+        function confirm_delete()
+        {
+            return confirm('Você tem certeza que deseja remover esse pedido?');
+        }
+        </script>
     <table class="table">
         <thead>
             <tr>
                 <th>Cor desejada</th>
                 <th>Quantidade</th>
+                <th>Remover pedido</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +24,7 @@
             <tr>
                 <td>{{ element.ordered_color }}</td>
                 <td>{{ element.quantity }}</td> 
+                <td><a href= "{% url 'delete-order' element.id %}" onclick="return confirm_delete()">Remover</a></td> 
                 {% endfor %}
             </tr>
         </tbody>
