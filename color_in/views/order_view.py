@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic import ListView
+from django.http import HttpResponseRedirect
 
 from color_in.models import Order, Color
 from color_in.views import arduino
@@ -32,3 +33,5 @@ def execute_order(request, *args, **kwargs):
     cmyk = color.cmyk
     c, m, y, k = map(int, cmyk.split(','))
     arduino.main(order_object.quantity, c, m , y, k)
+
+    return HttpResponseRedirect('/list_orders')
