@@ -9,7 +9,11 @@
                 <div class="col-sm-6">
                 <div class="card" style="margin: 2%">
                     <div class="card-header" style="color: white; background-color: rgb({{ element.cmyk|to_rgb }})">
-                    {{ element.color_name }}
+                    {% if element.color_name == 'Branco'%}
+                    <font color="black">{{ element.color_name }}</font>
+                    {% else %}
+                    <font color="white">{{ element.color_name }}</font>
+                    {% endif %}
                     </div>
                     <div class="card-body">
                     <p class="card-text">Nome da cor: {{ element.color_name }}
