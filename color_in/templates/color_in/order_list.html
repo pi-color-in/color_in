@@ -10,6 +10,12 @@
         {
             return confirm('Você tem certeza que deseja remover esse pedido?');
         }
+
+        function confirm_execution()
+        {
+            return confirm('Você tem certeza que deseja iniciar esse pedido?')
+        }
+
         </script>
     <table class="table">
         <thead>
@@ -26,7 +32,7 @@
                 <td>{{ element.ordered_color }}</td>
                 <td>{{ element.quantity }}</td> 
                 <td><a href= "{% url 'delete-order' element.id %}" onclick="return confirm_delete()"><i class="fas fa-trash"></i></a></td> 
-                <td><a href="{% url 'execute-order' element.id %}">Iniciar</a></td>
+                <td><a href="{% url 'execute-order' element.id %}" onclick="return confirm_execution()"><i class="fas fa-play"></i></a></td>
                 {% endfor %}
             </tr>
         </tbody>
