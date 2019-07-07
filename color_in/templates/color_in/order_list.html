@@ -20,6 +20,7 @@
     <table class="table">
         <thead>
             <tr class="text-center">
+                <th>Editar</th>
                 <th>Cor desejada</th>
                 <th>Quantidade</th>
                 <th >Remover pedido</th>
@@ -29,6 +30,7 @@
         <tbody>
             {% for element in object_list %}
             <tr class="text-center">
+                <td><a href= "{% url 'edit-order' element.id %}"><i class="fas fa-edit"></i></a></td> 
                 <td>{{ element.ordered_color }}</td>
                 <td>{{ element.quantity }}</td> 
                 <td><a href= "{% url 'delete-order' element.id %}" onclick="return confirm_delete()"><i class="fas fa-trash"></i></a></td> 

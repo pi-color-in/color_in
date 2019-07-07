@@ -1,4 +1,4 @@
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 
@@ -9,7 +9,12 @@ from color_in.views import arduino
 class OrderCreateView(CreateView):
     model = Order
     fields = '__all__'
-    success_url = 'list_orders'
+    success_url = '/list_orders'
+
+class OrderUpdateView(UpdateView):
+    model = Order
+    fields = '__all__'
+    success_url = '/list_orders'
 
 
 class OrderListView(ListView):

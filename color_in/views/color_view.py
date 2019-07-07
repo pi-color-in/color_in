@@ -1,4 +1,4 @@
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, DeleteView
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -75,3 +75,12 @@ class ColorEditView(FormView):
 
 class ColorListView(ListView):
     model = Color
+
+
+class ColorDeleteView(DeleteView):
+    model = Color
+    success_url = '/list_colors'
+
+    def get(self, request, *args, **kwargs):
+        # ignore object confirmation template page
+        return self.post(request, *args, **kwargs)

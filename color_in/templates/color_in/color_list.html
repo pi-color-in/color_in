@@ -4,6 +4,12 @@
 <head></head>
 <body>
     {% block content %}
+        <script type="text/javascript">
+        function confirm_delete()
+        {
+            return confirm('Você deseja remover essa cor?');
+        }
+        </script>
         <div class="row">
         {% for element in object_list %}
                 <div class="col-sm-6">
@@ -19,6 +25,7 @@
                     <div class="card-body">
                     <p class="card-text">Nome da cor: {{ element.color_name }}
                     <p class="card-text">CMYK: {{ element.cmyk }} </p>
+                    <p class="card-text"><a href="{% url 'delete-color' element.id %}" onclick="return confirm_delete()">Remover cor</a></p>
                     </div>
                 </div>
                 </div>

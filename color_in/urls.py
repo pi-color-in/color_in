@@ -20,12 +20,14 @@ from color_in.views import (
     ColorView,
     ColorEditView,
     ColorListView,
+    ColorDeleteView,
     StockObjectCreateView,
     StockObjectListView,
     StockObjectUpdateView,
     OrderCreateView,
     OrderListView,
     OrderDeleteView,
+    OrderUpdateView,
     home_page,
     execute_order)
 
@@ -34,6 +36,7 @@ urlpatterns = [
     path('', home_page),
     path('add_color/', ColorView.as_view(), name='color-add'),
     path('edit_color/<int:pk>', ColorEditView.as_view(), name='edit-color'),
+    path('delete_color/<int:pk>', ColorDeleteView.as_view(), name='delete-color'),
     path('list_colors/', ColorListView.as_view(), name='color-list'),
     path('stock_create', StockObjectCreateView.as_view(), name='stock-create'),
     path('stock_status', StockObjectListView.as_view(), name='stock-status'),
@@ -41,5 +44,6 @@ urlpatterns = [
     path('create_order', OrderCreateView.as_view(), name='create-order'),
     path('list_orders', OrderListView.as_view(), name='list-orders'),
     path('delete_order/<int:pk>', OrderDeleteView.as_view(), name='delete-order'),
+    path('edit_order/<int:pk>', OrderUpdateView.as_view(), name='edit-order'),
     path('execute_order/<int:pk>', execute_order, name='execute-order')
 ]
